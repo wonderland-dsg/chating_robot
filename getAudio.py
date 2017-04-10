@@ -105,9 +105,26 @@ def record():
     r = add_silence(r, 0.5)
     return sample_width, r
 
+
+
 def record_to_file(path):
     "Records from the microphone and outputs the resulting data to 'path'"
     sample_width, data = record()
+    data = pack('<' + ('h'*len(data)), *data)
+
+    wf = wave.open(path, 'wb')
+    wf.setnchannels(1)
+    wf.setsampwidth(sample_width)
+    wf.setframerate(RATE)
+    wf.writeframes(data)
+    wf.close()
+
+def record_to_file2(sample_width,data,path):
+    "Records from the microphone and outputs the resulting data to 'path'"
+    data = normalize(data)
+    data = trim(data)
+    data = add_silence(data, 0.5)
+
     data = pack('<' + ('h'*len(data)), *data)
 
     wf = wave.open(path, 'wb')

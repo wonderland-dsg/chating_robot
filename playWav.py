@@ -8,7 +8,7 @@ import sys
 chunk = 1024
 
 #只读方式打开wav文件
-f = wave.open(r"demo.wav","rb")
+f = wave.open(r"test3.mav","rb")
 
 p = pyaudio.PyAudio()
 

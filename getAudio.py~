@@ -7,7 +7,7 @@ import wave
 
 THRESHOLD = 400
 CHUNK_SIZE = 1024
-#FORMAT = pyaudio.paInt16
+FORMAT = pyaudio.paInt16
 RATE = 8000
 
 def is_silent(snd_data):

@@ -31,7 +31,7 @@ try:
             print "len:",len(rece)
             j=0
             while((j+1)<len(rece)):
-                d=(ord(rece[j+1])+256*ord(rece[j]))
+                d=(ord(rece[j])+256*ord(rece[j+1]))
                 if(d>32767):
                     d=d-65535
                 print d
